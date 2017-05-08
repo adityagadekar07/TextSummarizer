@@ -30,7 +30,7 @@ public class TextSummarizer {
 
     // move this to your test class
     public static void main(String[] args) throws IOException {
-        String line = "";
+        String line;
         String fullText = "";
 
         System.out.println("Enter the text: ");
@@ -39,13 +39,16 @@ public class TextSummarizer {
         do
         {
             line = bufferedReader.readLine();
-            fullText = fullText + line + " ";
+            if (line.equals("###"))
+                break;
+            else
+                fullText = fullText + line + " ";
         }
-        while(!line.equals("###"));
+        while(!line.equals("syzygy")); // this doesn't really matter anymore I just picked a really rare word to look cool
 
         inputStreamReader.close();
         bufferedReader.close();
-        System.out.println(fullText); // send this text to be summarized
+        System.out.println(fullText); // do something with full-text
     }
 
 
