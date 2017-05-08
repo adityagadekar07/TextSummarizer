@@ -1,6 +1,9 @@
 /**
  * Created by Dave on 5/7/17.
  */
+
+import java.io.*;
+
 public class TextSummarizer {
 
     private String[] stopWords = {"i", "me", "my", "myself", "we", "us", "our", "ours", "ourselves",
@@ -25,8 +28,24 @@ public class TextSummarizer {
             "both", "each", "few", "more", "most", "other", "some", "such", "no",
             "nor", "not", "only", "own", "same", "so", "than", "too", "very"};
 
-    public static void main(String[] args) {
+    // move this to your test class
+    public static void main(String[] args) throws IOException {
+        String line = "";
+        String fullText = "";
 
+        System.out.println("Enter the text: ");
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        do
+        {
+            line = bufferedReader.readLine();
+            fullText = fullText + line + " ";
+        }
+        while(!line.equals("###"));
+
+        inputStreamReader.close();
+        bufferedReader.close();
+        System.out.println(fullText); // send this text to be summarized
     }
 
 
